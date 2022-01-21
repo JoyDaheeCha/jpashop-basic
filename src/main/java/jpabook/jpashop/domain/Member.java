@@ -18,6 +18,10 @@ public class Member {
     @JoinColumn(name="TEAM_ID", insertable = false, updatable = false)
     private Team team;
 
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
