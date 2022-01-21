@@ -14,10 +14,6 @@ public class Member {
     @Column(name="USERNAME")
     private String username;
 
-    @ManyToOne
-    @JoinColumn(name="TEAM_ID")
-    private Team team;
-
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
@@ -37,15 +33,6 @@ public class Member {
         this.username = username;
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
-
     public List<Order> getOrders() {
         return orders;
     }
@@ -54,12 +41,4 @@ public class Member {
         this.orders = orders;
     }
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "Id=" + Id +
-                ", username='" + username + '\'' +
-                ", team=" + team +
-                '}';
-    }
 }
